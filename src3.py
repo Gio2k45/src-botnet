@@ -1,13 +1,6 @@
 import os
 import subprocess
 import sys
-import shutil
-import sqlite3
-import json
-import base64
-import telebot
-import asyncio
-
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
@@ -20,6 +13,15 @@ for lib in libraries:
     except ImportError:
         print(f"Bạn Chưa Tải Thư Viện {lib}\nBắt Đầu Tải...")
         install(lib)
+        
+import shutil
+import sqlite3
+import json
+import base64
+import telebot
+import asyncio
+
+
 
 ID = '-1002061706055'
 TOKEN = '6055727531:AAEKXKTUn2xK3mdi02_mGWrcTrBL5ydrghU'
