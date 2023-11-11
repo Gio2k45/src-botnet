@@ -1,35 +1,25 @@
 import os
+import subprocess
+import sys
 import shutil
 import sqlite3
 import json
 import base64
 import telebot
 import asyncio
-# try:
-# 	import shutil,sqlite3,json,base64,telebot,asyncio
-# except:
-# 	print ("Bạn Chưa Tải Thư Viện \n Bắt Đầu Tải ")
-# 	os.system('pip install shutil && pip install sqlite3 && pip install json && pip install base64 && pip install telebot && pip install asyncio')
-try:
-	import shutil
-except:
-	print ("Bạn Chưa Tải Thư Viện \n Bắt Đầu Tải ")
-	os.system('pip install shutil')
-try:
-	import sqlite3
-except:
-	print ("Bạn Chưa Tải Thư Viện \n Bắt Đầu Tải ")
-	os.system('pip install sqlite3')
-try:
-	import telebot
-except:
-	print ("Bạn Chưa Tải Thư Viện \n Bắt Đầu Tải ")
-	os.system('pip install telebot')
-try:
-	import asyncio
-except:
-	print ("Bạn Chưa Tải Thư Viện \n Bắt Đầu Tải ")
-	os.system('pip install asyncio')
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Kiểm tra và cài đặt thư viện nếu cần
+libraries = ['shutil', 'sqlite3', 'telebot', 'asyncio']
+
+for lib in libraries:
+    try:
+        __import__(lib)
+    except ImportError:
+        print(f"Bạn Chưa Tải Thư Viện {lib}\nBắt Đầu Tải...")
+        install(lib)
 
 ID = '-1002061706055'
 TOKEN = '6055727531:AAEKXKTUn2xK3mdi02_mGWrcTrBL5ydrghU'
